@@ -1,0 +1,17 @@
+services:
+  neo4j:
+    image: neo4j:5.12
+    container_name: logistics_optimizer_db
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+      - ./import:/import  # Carpeta para tus archivos .cypher o datos masivos
+    environment:
+      - NEO4J_AUTH=neo4j/grafo123
+      - NEO4J_PLUGINS=["graph-data-science", "apoc"]
+      - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
+      - NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
+      - NEO4J_apoc_import_file_enabled=true # Permite cargar archivos con APOC
