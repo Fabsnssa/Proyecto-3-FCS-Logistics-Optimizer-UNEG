@@ -10,7 +10,7 @@ services:
       - ./logs:/logs
       - ./import:/import  # Carpeta para tus archivos .cypher o datos masivos
     environment:
-      - NEO4J_AUTH=neo4j/grafo123
+      - NEO4J_AUTH=neo4j/graf1234
       - NEO4J_PLUGINS=["graph-data-science", "apoc"]
       - NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.*
       - NEO4J_dbms_security_procedures_allowlist=gds.*,apoc.*
